@@ -2,7 +2,6 @@
 
 def solution(scores):
     answer = ''
-    unique = 0
     result = ""
     result_list = []
     
@@ -11,9 +10,10 @@ def solution(scores):
     c = 0
 
     for k in range(0, len(scores[c])):
-      if max(scores[c]) <= 100 and min(scores[c]) >= 0:
-        if len(scores[k]) != len(scores):
-          n += 1
+      # if max(scores[c]) <= 100 and min(scores[c]) >= 0:
+      if (max(scores[c]) > 100 and min(scores[c]) < 0) or (len(scores[k]) != len(scores)): 
+        # if len(scores[k]) != len(scores):
+        n += 1
       c += 1
 
     if (n == 0) and (len(scores) >= 2 and len(scores) <= 10):
@@ -21,7 +21,8 @@ def solution(scores):
       scores = list(map(list, zip(*scores)))  
 
       for i in range(0, len(scores)):
-          if ((scores[i][i] == max(scores[i])) or (scores[i][i] == min(scores[i]))) and ((scores[i].count(max(scores[i])) == 1) or (scores[i].count(min(scores[i])) == 1)):
+          #if ((scores[i][i] == max(scores[i])) or (scores[i][i] == min(scores[i]))) and ((scores[i].count(max(scores[i])) == 1) or (scores[i].count(min(scores[i])) == 1)):
+          if ((scores[i][i] == max(scores[i])) and (scores[i].count(max(scores[i])) == 1)) or ((scores[i][i] == min(scores[i])) and (scores[i].count(min(scores[i])) == 1)):
             avg = (sum(scores[i]) - scores[i][i])/(len(scores[i])-1)
           else:
             avg = sum(scores[i])/len(scores[i])
@@ -42,5 +43,4 @@ def solution(scores):
       
       return answer
 
-
-solution([[70,49,90],[68,50,38],[73,31,100]])
+print(solution([[75, 50, 100], [75, 100, 20], [100, 100, 20]])) # BBF
