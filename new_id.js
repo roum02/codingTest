@@ -3,16 +3,23 @@ function solution(new_id) {
 
   new_id = new_id.toLowerCase();
   new_id = new_id.replace(/[^a-z0-9-_.]/g, "");
-  new_id = new_id.replace("..", ".");
+  // new_id = new_id.replace("..", ".");
+  new_id = new_id.replace(/\.+/, ".");
+  console.log(new_id);
   new_id = new_id.replace(/^\./, "");
+  console.log(new_id);
   new_id = new_id.replace(/\.$/, "");
+  console.log(new_id);
   if (new_id == "") {
     new_id = new_id + "a";
   }
+  console.log(new_id);
   if (new_id.length >= 16) {
     new_id = new_id.substring(0, 15);
   }
+  console.log(new_id);
   new_id = new_id.replace(/\.$/, "");
+  console.log(new_id);
   if (new_id.length <= 2) {
     let last = new_id.charAt(new_id.length - 1);
     while (new_id.length < 3) {
