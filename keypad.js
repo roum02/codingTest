@@ -14,10 +14,44 @@ function solution(numbers, hand) {
     "#": [2, 0],
   };
 
-  //거리 계산
-  function getDistance() {}
-  // var answer = String(numbers).replace(/1|4|7/g, "L").replace(/3|6|9/g, "R");
+  let answer = "";
+
+  //처음 손가락 위치
+  let leftFinger = "*";
+  let rightFinger = "#";
+
+  for (let i = 0; i < numbers.length; i++) {
+    let num = numbers[i];
+
+    if (num % 3 === 1) {
+      answer += "L";
+      leftFinger = num;
+    } else if (num % 3 === 0) {
+      answer += "R";
+      rightFinger = num;
+    } else {
+      answer += getDistance(keypad, num, hand, leftFinger, rightFinger);
+      answer[answer.length - 1] === "L"
+        ? (leftFinger = num)
+        : (rightFinger = num);
+    }
+  }
+
   return answer;
+}
+
+//거리 계산
+function getDistance(keypad, num, hand, leftFinger, rightFinger) {
+  const handed = hand === "left" ? "L" : "R";
+  const left =
+    Math.abs(keypad[num][0] - keypad[leftFinger][0]) +
+    Math.abs(keypad[num][1] - keypad[leftFinger][1]);
+  const right =
+    Math.abs(keypad[num][0] - keypad[rightFinger][0]) +
+    Math.abs(keypad[num][1] - keypad[rightFinger][1]);
+  if (left === right) return handed;
+
+  return left < right ? "L" : "R";
 }
 
 console.log(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5], "right"));
