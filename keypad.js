@@ -54,4 +54,6 @@ function getDistance(keypad, num, hand, leftFinger, rightFinger) {
   return left < right ? "L" : "R";
 }
 
-console.log(solution([1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5], "right"));
+console.log(solution(	[1, 2, 3, 4, 5, 6, 7, 8, 9, 0], "right"));
+
+//"LLRLLRLLRL"
