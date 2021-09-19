@@ -1,11 +1,12 @@
 const fs = require("fs");
-var input = fs.readFileSync("/dev/stdin").toString().split(" ");
+var input = fs.readFileSync("/dev/stdin").toString().split("\n");
 
-var a = parseInt(input[0]);
-var b = parseInt(input[1]);
+var a = Number(input[0]);
+var b = Number(input[1]);
 
 // var a = 472;
 // var b = 385;
+
 var sum = 0;
 
 for (let i = 1; i < 4; i++) {
