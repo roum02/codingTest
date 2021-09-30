@@ -25,4 +25,3 @@ rl.on("line", function (line) {
 // var a = 9;
 // var b = -13;
 
-console.log(Quadrant(a, b));
