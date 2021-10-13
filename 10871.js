@@ -1,0 +1,13 @@
+let input = require("fs").readFileSync("/dev/stdin").toString().split("\n");
+let num = input[0].split(" ").map((x) => Number(x));
+let arr = input[1].split(" ").map((x) => Number(x));
+
+let answer = [];
+
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] < num[1]) {
+    answer.push(arr[i]);
+  }
+}
+
+console.log(answer.join(" "));
