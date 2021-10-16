@@ -14,18 +14,18 @@ function solution(numbers) {
       answer.push(num[i]);
     }
 
-    for (let j = 0; j < num.length; j++) {
-      if (i !== j) {
-        if (Number(String(num[i]) + String(num[j])) < 2) {
-        } else {
-          for (let k = 2; k < Number(String(num[i]) + String(num[j])); k++) {
-            if (Number(String(num[i]) + String(num[j])) % k === 0) {
-            }
-          }
-          answer.push(Number(String(num[i]) + String(num[j])));
-        }
-      }
-    }
+    // for (let j = 0; j < num.length; j++) {
+    //   if (i !== j) {
+    //     if (Number(String(num[i]) + String(num[j])) < 2) {
+    //     } else {
+    //       for (let k = 2; k < Number(String(num[i]) + String(num[j])); k++) {
+    //         if (Number(String(num[i]) + String(num[j])) % k === 0) {
+    //         }
+    //       }
+    //       answer.push(Number(String(num[i]) + String(num[j])));
+    //     }
+    //   }
+    // }
   }
 
   return answer;
