@@ -23,3 +23,4 @@ print(count)
 
 N = int(input("N을 입력:"))
 K = int(input("K를 입력:"))
+
