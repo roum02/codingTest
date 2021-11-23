@@ -6,5 +6,5 @@ s = input("s를 입력하세요:")
 result = 0
 max = -99
 
-for i in range(0, len(s)):
-  if s[i]
+for i in range(1, len(s)-1):
+  if s[i-1] * s[i] == 0
