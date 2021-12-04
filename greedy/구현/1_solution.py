@@ -17,5 +17,5 @@ for plan in plans:
     continue
   x, y = nx, ny
 
-return (x, y)
+print(x, y)
 
