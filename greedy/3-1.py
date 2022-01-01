@@ -29,4 +29,3 @@ while temp >= 0:
     break
 print(temp, count)
 
-# print(temp//500)
