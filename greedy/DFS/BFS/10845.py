@@ -1,28 +1,9 @@
 import sys
 from collections import deque
 
-n = int(sys.stdin.readline())
+n = int(sys.stdin.readline().strip())
+#n = int(input())
 data = [sys.stdin.readline().strip() for i in range(n)]
-
-# n = 15
-# data = [
-#   'push 1',
-# 'push 2',
-# 'front',
-# 'back',
-# 'size',
-# 'empty',
-# 'pop',
-# 'pop',
-# 'pop',
-# 'size',
-# 'empty',
-# 'pop',
-# 'push 3',
-# 'empty',
-# 'front'
-# ]
-
 
 queue = deque([])
 

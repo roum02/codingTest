@@ -1,30 +1,11 @@
 import sys 
 from collections import deque 
 
-n = 15
-data = [
-  'push 1',
-'push 2',
-'front',
-'back',
-'size',
-'empty',
-'pop',
-'pop',
-'pop',
-'size',
-'empty',
-'pop',
-'push 3',
-'empty',
-'front'
-]
-
 queue = deque([]) 
 
-#for _ in range(int(sys.stdin.readline().strip())):
-for command in data:
- #command = sys.stdin.readline().strip()
+for _ in range(int(sys.stdin.readline().strip())):
+#for command in data:
+ command = sys.stdin.readline().strip()
  if command[0]=='s': # size 
    print(len(queue)) 
    print('size:', queue)
