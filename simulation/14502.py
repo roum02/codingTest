@@ -12,6 +12,26 @@
 # 둘째줄 좌표(r,c)와 방향d
 # 셋째줄 빈칸0, 벽1
 
+
+
+# ### 1.아이디어 떠올리기
+# 	1) 특정 조건으로 멈추지 않는 이상 계속 작동: while문
+#     2) 방향 4가지 탐색: for문
+#     3) 4방향 안됨: 후진
+#     4) 후진도 안됨: break
+    
+# ### 2.시간복잡도 
+#     1) 최대 N * M O(NM)
+#     2) 각 4번씩 회전
+    
+# ### 3.자료구조: 시뮬레이션은 복잡도를 낮추는 것이 중요
+#     1) 전체 지도: int[][]
+#     	- 0: 청소x, 1:벽, 2: 청소o
+#     2) 내위치(y,x), 방향(d): int, int, int
+#     3) 전체 청소한 개수 count: int
+
+
+
 ## 입력값 외우기! ## 
 import sys
 
@@ -20,3 +40,4 @@ input = sys.stdin.readline
 N, M = map(int, input().split())
 y, x, d = map(int, input().split())
 map = [list(map(int, input().split())) for _ in range(N)]
+
