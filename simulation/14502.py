@@ -40,4 +40,47 @@ input = sys.stdin.readline
 N, M = map(int, input().split())
 y, x, d = map(int, input().split())
 map = [list(map(int, input().split())) for _ in range(N)]
+cnt = 0
 
+dy = [-1, 0, 1, 0]
+dx = [0, 1, 0, -1]
+
+while True:
+  # 현재위치 청소
+  if map[y][x] == 0:
+    map[y][x] = 2
+    cnt += 1
+    sw = False
+
+  for i in range(1,5):
+    # 다음에 바라볼 곳 ny, nx
+    ny = y + dy[d-i]
+    nx = x + dx[d-i]
+
+    # 2차원 백터에서 다음을 탐색할 때, 항상 범위 안에 있는지 체크
+    if 0<=nx<M and 0<=ny<N:
+      if map[ny][nx] == 0:
+        d = d-i
+        y = dy
+        x = dx
+        # 다시 1 번으로 돌아감
+        sw = True 
+        break
+      
+      # 4방향 모두 있지 않은 경우: sw가 False일때만 오게끔
+      if sw == False:
+        # 뒤쪽 방향이 막혀있는지 확인
+        ny = y - dy[d]
+        nx = x - dx[d]
+
+        if 0<=nx<M and 0<=ny<N:
+          if map[dy][dx] == 1:
+            break
+          else:
+            y = dy
+            x = dx
+            # 2번으로 돌아가야함!
+        else:
+          break
+
+print(cnt)
