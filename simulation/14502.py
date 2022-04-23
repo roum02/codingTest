@@ -44,12 +44,6 @@ cnt = 0
 dy = [-1, 0, 1, 0]
 dx = [0, 1, 0, -1]
 
-# print("N, M: ", N, M)
-# print("y, x, d:", y, x, d)
-# print("map: ", map)
-
-# print(map[y][x])
-
 while True:
   # 현재위치 청소
   if map[y][x] == 0:
