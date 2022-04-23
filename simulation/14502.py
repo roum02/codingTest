@@ -59,14 +59,13 @@ while True:
 
   for i in range(1,5):
     # 다음에 바라볼 곳 ny, nx
-    print(d-i)
     ny = y + dy[d-i]
     nx = x + dx[d-i]
 
     # 2차원 백터에서 다음을 탐색할 때, 항상 범위 안에 있는지 체크
     if 0<=nx<M and 0<=ny<N:
       if map[ny][nx] == 0:
-        d = d-i
+        d = (d-i+4) %4
         y = ny
         x = nx
         # 다시 1 번으로 돌아감
