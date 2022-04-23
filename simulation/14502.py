@@ -34,7 +34,6 @@
 
 ## 입력값 외우기! ## 
 import sys
-
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
@@ -45,15 +44,22 @@ cnt = 0
 dy = [-1, 0, 1, 0]
 dx = [0, 1, 0, -1]
 
+# print("N, M: ", N, M)
+# print("y, x, d:", y, x, d)
+# print("map: ", map)
+
+# print(map[y][x])
+
 while True:
   # 현재위치 청소
   if map[y][x] == 0:
     map[y][x] = 2
     cnt += 1
-    sw = False
+  sw = False
 
   for i in range(1,5):
     # 다음에 바라볼 곳 ny, nx
+    print(d-i)
     ny = y + dy[d-i]
     nx = x + dx[d-i]
 
@@ -61,26 +67,26 @@ while True:
     if 0<=nx<M and 0<=ny<N:
       if map[ny][nx] == 0:
         d = d-i
-        y = dy
-        x = dx
+        y = ny
+        x = nx
         # 다시 1 번으로 돌아감
         sw = True 
         break
       
       # 4방향 모두 있지 않은 경우: sw가 False일때만 오게끔
-      if sw == False:
-        # 뒤쪽 방향이 막혀있는지 확인
-        ny = y - dy[d]
-        nx = x - dx[d]
+  if sw == False:
+    # 뒤쪽 방향이 막혀있는지 확인
+    ny = y - dy[d]
+    nx = x - dx[d]
 
-        if 0<=nx<M and 0<=ny<N:
-          if map[dy][dx] == 1:
-            break
-          else:
-            y = dy
-            x = dx
-            # 2번으로 돌아가야함!
-        else:
-          break
+    if 0<=nx<M and 0<=ny<N:
+      if map[ny][nx] == 1:
+        break
+      else:
+        y = ny
+        x = nx
+        # 2번으로 돌아가야함!
+    else:
+      break
 
 print(cnt)
